@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heightFeet: 1
+  heightInches: 9.99
+  weight: 1
+  male: false
+  chronic: false
+  current: false
+
+two:
+  heightFeet: 1
+  heightInches: 9.99
+  weight: 1
+  male: false
+  chronic: false
+  current: false
