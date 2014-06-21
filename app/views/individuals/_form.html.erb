@@ -1,0 +1,9 @@
+<%= simple_form_for Individual.new do |f| %>
+    <%= f.input :heightFeet, label: 'Height', placeholder:"Feet" %>
+    <%= f.input :heightInches, label: 'Height', placeholder:"Inches"  %>
+    <%= f.input :weight, label: 'Weight', placeholder: 'pounds' %>
+    <%= f.input :male, inline_label: 'Yes, remember me' %>
+    <%= f.input :chronic, inline_label: 'Yes, remember me' %>
+    <%= f.input :current, inline_label: 'Yes, remember me' %>
+    <%= f.button :submit %>
+<% end %>

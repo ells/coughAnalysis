@@ -99,13 +99,13 @@
         </div>
       </div>
       <div class="item inactive">
-        <img src="<%= asset_path( 'data/spectrum.png' ) %>" class="img-responsive img-centered"/>
+        <img src="<%= asset_path( 'data/cough.png' ) %>" class="img-responsive img-centered"/>
         <div class="carousel-caption">
           Spectrum1
         </div>
       </div>
       <div class="item inactive">
-        <img src="<%= asset_path( 'data/spectrum.png' ) %>" class="img-responsive img-centered"/>
+        <img src="<%= asset_path( 'data/cough.png' ) %>" class="img-responsive img-centered"/>
         <div class="carousel-caption">
           Spectrum2
         </div>
@@ -124,10 +124,8 @@
 </section>
 
 <section id="upload">
-
-
-
-
+  <%= yield %>
+  <%= render 'individuals/form' %>
 
 </section>
 
