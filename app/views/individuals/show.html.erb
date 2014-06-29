@@ -1,30 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Contact</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<p id="notice"><%= notice %></p>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+<p>
+  <strong>Heightfeet:</strong>
+  <%= @individual.heightFeet %>
+</p>
 
-  <title>Cough Analysis - Contact</title>
+<p>
+  <strong>Heightinches:</strong>
+  <%= @individual.heightInches %>
+</p>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/freelancer.css" rel="stylesheet" type="text/css">
+<p>
+  <strong>Weight:</strong>
+  <%= @individual.weight %>
+</p>
 
-  <!-- Fonts -->
-  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<p>
+  <strong>Male:</strong>
+  <%= @individual.male %>
+</p>
 
-  <!-- IE8 support for HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
+<p>
+  <strong>Chronic:</strong>
+  <%= @individual.chronic %>
+</p>
 
-</head>
+<p>
+  <strong>Current:</strong>
+  <%= @individual.current %>
+</p>
+
+<%= link_to 'Edit', edit_individual_path(@individual) %> |
+<%= link_to 'Back', individuals_path %>
