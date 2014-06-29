@@ -4,12 +4,14 @@ class IndividualsController < ApplicationController
   def create
     @individual = Individual.new(individual_params)
     if @individual.save
-      # render '/static_pages/upload'
+      render 'data'
     end
   end
 
+
+
   def show
-    @user = Individual.find(params[:id])
+    @submission = Individual.find(params[:id])
 
   end
 
