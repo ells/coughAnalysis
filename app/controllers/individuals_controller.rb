@@ -4,10 +4,8 @@ class IndividualsController < ApplicationController
   def create
     @individual = Individual.new(individual_params)
     if @individual.save
-      render 'data'
     end
   end
-
 
 
   def show
@@ -17,7 +15,7 @@ class IndividualsController < ApplicationController
 
   private
   def individual_params
-    params.require(:individual).permit(:heightFeet, :heightInches, :weight, :male, :chronic, :current)
+    params.require(:individual).permit(:heightFeet, :heightInches, :weight, :male, :chronic, :current, :audio)
   end
 
 end

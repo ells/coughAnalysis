@@ -20,7 +20,7 @@ gem 'bootstrap-sass'
 
 gem 'simple_form'
 
-gem 'jquery-fileupload-rails'
+gem "carrierwave"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,3 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Audio Editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+
+</head>
+
+
+<body>
+
+<div class="recorder container">
+  <h2>Record</h2>
+  <p>
+    To record your cough, hit the record button when you are ready.
+    You can also drag a cough file onto the editor below.
+  </p>
+  <p>
+    <button class="btn btn-primary" onclick="startRecording(this);">Record</button>
+    <button class="btn btn-warning" onclick="stopRecording(this);" disabled>Stop</button>
+  </p>
+  <h2>Recorded Coughs</h2>
+  <p>
+    Once your cough has been recorded, it will show up below. You
+    can choose which cough you wish to edit by clicking
+    the edit button by the track you have recorded. The track will
+    then show up in the editor below.
+  </p>
+  <!-- Where the recordings will show up. -->
+  <table id="recordingslist"></table>
+</div>
+
+<div class="editor container">
+  <br/>
+  <h2>Editor and spectrum analyzer</h2>
+  <p>
+    Once your cough has been loaded, you can select the area in
+    which the cough exists by clicking and dragging your mouse in
+    the editor.
+  </p>
+  <p>
+    Once you have selected the area you wish to keep, cut that area
+    by clicking the cut button. Select the entire area and then
+    paste your cough back into the editor by clicking the paste
+    button. You can resize the cough to fit the editor window by
+    clicking the zoom to fit button.
+  </p>
+  <p>
+    You can also select a window and drag it in the editor to see
+    the spectrum produced by the cough.
+  </p>
+  <div class="row">
+    <div class="span12">
+      <center>
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a class="btn btn-primary" onclick="$('#audioLayerControl')[0].copy();"><i class="icon-share icon-white"></i> Copy</a>
+            <a class="btn btn-primary" onclick="$('#audioLayerControl')[0].cut();$('#audioLayerControl')[0].selectAll();$('#audioLayerControl')[0].paste();$('#audioLayerControl')[0].zoomToFit();"><i class="icon-check icon-white"></i> Select</a>
+            <a class="btn btn-primary" onclick="$('#audioLayerControl')[0].cut();$('#audioLayerControl')[0].selectAll();$('#audioLayerControl')[0].paste();$('#audioLayerControl')[0].zoomToFit();"><i class="icon-chevron-up icon-white"></i> Cut</a>
+            <a class="btn btn-primary" onclick="$('#audioLayerControl')[0].paste();"><i class="icon-chevron-down icon-white"></i> Paste</a>
+            <a class="btn btn-primary" onclick="$('#audioLayerControl')[0].del();"><i class="icon-remove icon-white"></i> Delete</a>
+          </div>
+          <div class="btn-group">
+            <a class="btn btn-success" onclick="$('#audioLayerControl')[0].selectAll();"><i class="icon-resize-horizontal icon-white"></i> Select All</a>
+            <a class="btn btn-success" onclick="$('#audioLayerControl')[0].zoomIntoSelection();"><i class="icon-plus-sign icon-white"></i> Zoom To Selection</a>
+            <a class="btn btn-success" onclick="$('#audioLayerControl')[0].zoomToFit();"><i class="icon-fullscreen icon-white"></i> Zoom To Fit</a>
+          </div>
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span4">
+      <h6>Spectrum</h6>
+      <div class="well">
+        <div id="spectrum"></div>
+      </div>
+    </div>
+    <div class="span8">
+      <h6>Editor</h6>
+      <div class="well">
+        <audioLayerControl id="audioLayerControl" title="test"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <center>
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <a id="btn_play" class="btn btn-success btn-large" onclick="$('#audioLayerControl')[0].play()" rel="tooltip"><i class="icon-play icon-white"></i></a>
+            <a id="btn_pause" class="btn btn-success btn-large disabled"><i class="icon-pause icon-white"></i></a>
+            <a id="btn_stop" class="btn btn-success btn-large" onclick="$('#audioLayerControl')[0].stop()"><i class="icon-stop icon-white"></i></a>
+            <a id="btn_loop" class="btn btn-warning btn-large" data-toggle="button" onclick="$('#audioLayerControl')[0].toggleLoop();"><i class="icon-repeat icon-white"></i></a>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn-large btn-success" id="savelink" onclick="$('#audioLayerControl')[0];"><i class="icon-download"></i> Save</button>
+          </div>
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <!-- Progress bar. -->
+  <div class="row">
+    <div class="span4 offset4">
+      <div class="progress progress-striped active">
+        <div id="app-progress" class="bar" style="width: 0%;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+<br/>
+
+
+<!-- Load the javascript scripts. -->
+<%= javascript_include_tag "jquery-1.10.2" %>
+<%= javascript_include_tag "bootstrap.min.js" %>
+<%= javascript_include_tag "recorder.js" %>
+<%= javascript_include_tag "ACFFT.js" %>
+<%= javascript_include_tag "ACSpectrum" %>
+<%= javascript_include_tag "SpectrumWorker" %>
+<%= javascript_include_tag "SpectrumDisplay" %>
+<%= javascript_include_tag "audioLayerControl" %>
+<%= javascript_include_tag "audioplayback" %>
+<%= javascript_include_tag "filedropbox" %>
+<%= javascript_include_tag "fft" %>
+<%= javascript_include_tag "audiosequence" %>
+<%= javascript_include_tag "mathutilities" %>
+<%= javascript_include_tag "wavetrack" %>
+<%= javascript_include_tag "binarytoolkit" %>
+<%= javascript_include_tag "filesystemutility" %>
+<%= javascript_include_tag "editorapp" %>
+<%= javascript_include_tag "recordWorker" %>
+<%= javascript_include_tag "recordLive" %>
+
+
+
+
+<script type="text/javascript">
+    $(window).load(function() {
+        // $('.editor.container');//.addClass('invisible');
+        onDocumentLoaded();
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
 
 <%= simple_form_for Individual.new do |f| %>
     <%= f.input :heightFeet, label: 'Height', placeholder:"Feet"%>
@@ -7,6 +167,7 @@
 
     <%= f.input :chronic, label: 'Do you have a chronic respiratory condition?' %>
     <%= f.input :current, label: 'Are you currently having problems breathing?' %>
+    <%= f.file_field :audio %>
     <%= f.button :submit %>
 <% end %>
 

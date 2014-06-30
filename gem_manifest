@@ -1,4 +1,4 @@
-/// June 20th, 2014
+/// June 20th, 2014 ///
 
 ADD SIMPLE_FORM GEM:
 
@@ -8,11 +8,13 @@ ADD SIMPLE_FORM GEM:
 
 3.) from the coughAnalysis directory, run: rails generate simple_form:install
 
-// June 29th, 2014
 
-1.) add to gemfile -> gem 'jquery-fileupload-rails'
+
+/// June 29th, 2014 ///
+
+ADD CARRIERWAVE GEM:
+
+1.) add to gemfile -> gem 'carrierwave'
 
 2.) from the coughAnalysis directory, run: bundle install
-
-
 
