@@ -2,7 +2,17 @@
 
 ADD SIMPLE_FORM GEM:
 
-1.) from the coughAnalysis directory, run: bundle install
+1.) add to gemfile -> gem 'simple_form'
 
-2.) from the coughAnalysis directory, run: rails generate simple_form:install
+2.) from the coughAnalysis directory, run: bundle install
+
+3.) from the coughAnalysis directory, run: rails generate simple_form:install
+
+// June 29th, 2014
+
+1.) add to gemfile -> gem 'jquery-fileupload-rails'
+
+2.) from the coughAnalysis directory, run: bundle install
+
+
 
