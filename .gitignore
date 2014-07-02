@@ -24,10 +24,6 @@ database.yml
 blank.rb
 app_environment_variables.rb
 
-blank.rb
-
-config/initializers/app_environment_variables.rb
-
 config/initializers/app_environment_variables.rb
 
 config/database.yml
