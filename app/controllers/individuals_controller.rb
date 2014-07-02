@@ -1,10 +1,8 @@
 class IndividualsController < ApplicationController
-  before_filter :create
 
   def create
     @individual = Individual.new(individual_params)
-    if @individual.save
-    end
+    @individual.save
   end
 
 

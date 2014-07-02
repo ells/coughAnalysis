@@ -1,14 +1,15 @@
 # encoding: utf-8
-
 class AudioUploader < CarrierWave::Uploader::Base
+  require 'date'
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # FILE = LOCAL whereas FOG = CLOUD
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -44,8 +45,9 @@ class AudioUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    date = Date.today.to_s(:number)
+    "#{model.id}_#{date}_#{model.heightFeet}_#{model.heightInches}_#{model.weight}_#{model.male}_#{model.chronic}_#{model.current}.wav" if original_filename
+  end
 
 end

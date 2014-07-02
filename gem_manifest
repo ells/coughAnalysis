@@ -18,3 +18,36 @@ ADD CARRIERWAVE GEM:
 
 2.) from the coughAnalysis directory, run: bundle install
 
+
+
+
+/// June 30th, 2014 ///
+
+ADD FOG GEM:
+
+1.) add to gemfile -> gem 'fog'
+
+2.) from the coughAnalysis directory, run: bundle install
+
+
+
+/// July 1st, 2014 ///
+
+ADD HEROKU GEM:
+
+1.) add to gemfile -> gem 'rails_12factor', group: :production
+
+2.) from the coughAnalysis directory, run: bundle install
+
+ADD POSTGRES GEM:
+
+1.) add to gemfile -> gem 'pg'
+
+2.) from the coughAnalysis directory, run: bundle install
+
+
+
+
+
+
+

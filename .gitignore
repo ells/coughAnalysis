@@ -18,4 +18,16 @@
 .idea/workspace.xml
 Vagrantfile
 
+database.yml
 *.wav
+.DS_Store
+blank.rb
+app_environment_variables.rb
+
+blank.rb
+
+config/initializers/app_environment_variables.rb
+
+config/initializers/app_environment_variables.rb
+
+config/database.yml
