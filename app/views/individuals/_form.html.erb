@@ -151,17 +151,50 @@
 
 
 </body>
+
+<%= form_for Individual.new, class: "center" do |f| %>
+
+      <%= f.label :heightFeet, "Feet:", class: "col-md-2" %>
+      <%= f.text_field :heightFeet, class: "form-control" %>
+
+      <%= f.label :heightInches, "Inches:", class: "col-md-2 control-label" %>
+      <%= f.text_field :heightInches, class: "form-control" %>
+
+
+      <%= f.label :weight, "Weight:", class: "col-md-2 control-label" %>
+      <%= f.text_field :weight, class: "form-control" %>
+
+    <br>
+    <br>
+    <div style="width:100%" align="center">
+
+    <%= f.radio_button :male, 'Male', :checked => true %> Male
+      <br>
+    <%= f.radio_button :male, 'Female', :checked => false %> Female
+    <br>
+    <br>
+
+
+    <%= f.check_box :chronic %> Do you have a chronic respiratory condition?
+    <br>
+    <br>
+
+
+    <%= f.check_box :current %> Are you currently having problems breathing?
+    <br>
+    <br>
+    </div>
+
+    <div style="width:105%" align="center">
+        <%= f.file_field :audio %>
+    </div>
+
+    <div style="width:100%" align="center">
+
+    <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+    </div>
+
+<% end %>
 </html>
 
-<%= simple_form_for Individual.new do |f| %>
-    <%= f.input :heightFeet, label: 'Height', placeholder:"Feet"%>
-    <%= f.input :heightInches, label: 'Height', placeholder:"Inches"  %>
-    <%= f.input :weight, label: 'Weight', placeholder: 'pounds' %>
-    <%= f.input :male, label: 'Male' %>
-
-    <%= f.input :chronic, label: 'Do you have a chronic respiratory condition?' %>
-    <%= f.input :current, label: 'Are you currently having problems breathing?' %>
-    <%= f.file_field :audio %>
-    <%= f.button :submit %>
-<% end %>
 
